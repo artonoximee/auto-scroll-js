@@ -2,17 +2,29 @@ let section1 = document.getElementById("section-1");
 let section2 = document.getElementById("section-2");
 let section3 = document.getElementById("section-3");
 
-let clientHeight = document.documentElement.clientHeight;
-
-let scrollTopPosition;
-
 let section1Height = section1.clientHeight
 let section2Height = section1Height + section2.clientHeight
 let section3Height = section2Height + section3.clientHeight
 
-let pageHeight = section1.clientHeight + section2.clientHeight + section3.clientHeight;
+let clientHeight = document.documentElement.clientHeight;
 
-window.onscroll = function() {printScrollTop()};
+let scrollPosition = document.documentElement.scrollTop + clientHeight / 2;
+
+const myInterval = setInterval(function() {
+  hasUserMoved();
+}, 1000);
+
+function hasUserMoved() {
+  let newScrollPosition = document.documentElement.scrollTop + clientHeight / 2;
+  if (scrollPosition == newScrollPosition) {
+    console.log("User has not moved");
+  } else {
+    console.log("User has moved");
+  }
+  scrollPosition = newScrollPosition;
+}
+
+/*window.onscroll = function() {printScrollTop()};
 
 function printScrollTop() {
   let scrollTopPosition = document.documentElement.scrollTop + clientHeight/2;
@@ -36,7 +48,7 @@ function stillHere(section, savedScrollTopPosition) {
     console.log(scrollTopPosition);
     console.log("You have moved, cancel animation");
   }
-}
+}*/
 
 /*section1.addEventListener("mouseover", waitSection1, false);
 section2.addEventListener("mouseover", waitSection2, false);
