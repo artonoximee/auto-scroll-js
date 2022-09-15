@@ -1,8 +1,15 @@
 let section1 = document.getElementById("section-1");
 let section2 = document.getElementById("section-2");
-let container = document.getElementById("container");
+let section3 = document.getElementById("section-3");
+let scrollTopPosition;
 
-section1.addEventListener("mouseover", waitSection1, false);
+let section1Height = section1.clientHeight
+let section2Height = section1Height + section2.clientHeight
+let section3Height = section2Height + section3.clientHeight
+
+let pageHeight = section1.clientHeight + section2.clientHeight + section3.clientHeight;
+
+/*section1.addEventListener("mouseover", waitSection1, false);
 section2.addEventListener("mouseover", waitSection2, false);
 
 function waitSection1() {
@@ -23,4 +30,15 @@ function scrollToSection2() {
   document.getElementById(`section-2`).scrollIntoView({ 
     behavior: 'smooth' 
   })
+}*/
+
+window.onscroll = function() {printScrollTop()};
+
+function printScrollTop() {
+  let scrollTopPosition = document.documentElement.scrollTop;
+  if (scrollTopPosition < section1Height) {
+    console.log("Section 1")
+  } else if (scrollTopPosition > section1Height && scrollTopPosition < section2Height) {
+    console.log("Section 2")
+  }
 }
