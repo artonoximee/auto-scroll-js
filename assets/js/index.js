@@ -18,17 +18,12 @@ function hasUserMoved() {
   let newScrollPosition = document.documentElement.scrollTop + clientHeight / 2;
   if (scrollPosition == newScrollPosition) {
     if (scrollPosition < section1Height) {
-      console.log("User does not move in section 1")
       scrollToSection(1)
     } else if (scrollPosition > section1Height && scrollPosition < section2Height) {
-      console.log("User does not move in section 2")
       scrollToSection(2)
     } else if (scrollPosition > section2Height && scrollPosition < section3Height) {
-      console.log("User does not move in section 3")
       scrollToSection(3)
     }
-  } else {
-    console.log("User has moved");
   }
   scrollPosition = newScrollPosition;
 }
