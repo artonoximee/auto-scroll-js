@@ -12,7 +12,7 @@ let scrollPosition = document.documentElement.scrollTop + clientHeight / 2;
 
 const myInterval = setInterval(function() {
   hasUserMoved();
-}, 2000);
+}, 1500);
 
 function hasUserMoved() {
   let newScrollPosition = document.documentElement.scrollTop + clientHeight / 2;
