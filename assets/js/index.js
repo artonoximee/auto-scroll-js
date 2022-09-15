@@ -1,6 +1,9 @@
 let section1 = document.getElementById("section-1");
 let section2 = document.getElementById("section-2");
 let section3 = document.getElementById("section-3");
+
+let clientHeight = document.documentElement.clientHeight;
+
 let scrollTopPosition;
 
 let section1Height = section1.clientHeight
@@ -35,10 +38,12 @@ function scrollToSection2() {
 window.onscroll = function() {printScrollTop()};
 
 function printScrollTop() {
-  let scrollTopPosition = document.documentElement.scrollTop;
+  let scrollTopPosition = document.documentElement.scrollTop + clientHeight/2;
   if (scrollTopPosition < section1Height) {
     console.log("Section 1")
   } else if (scrollTopPosition > section1Height && scrollTopPosition < section2Height) {
     console.log("Section 2")
+  } else if (scrollTopPosition > section2Height && scrollTopPosition < section3Height) {
+    console.log("Section 3")
   }
 }
